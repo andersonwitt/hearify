@@ -130,12 +130,9 @@
       </div>
 
       <div class="actions">
-        <button>
-          <img width="24px" src="./assets/icons/volume-icon.svg" alt="volume" />
-        </button>
-
-        <button>
+        <button id="favorite-button">
           <img
+            id="favorite-image"
             width="24px"
             src="./assets/icons/favorite-white-icon.svg"
             alt="favorite"
@@ -147,8 +144,30 @@
         </button>
 
         <button id="repeat-button">
-          <img width="24px" src="./assets/icons/repeat-icon.svg" alt="repeat" />
+          <img
+            id="repeat-img"
+            width="24px"
+            src="./assets/icons/repeat-icon.svg"
+            alt="repeat"
+          />
         </button>
+
+        <button id="volume-button">
+          <img
+            id="volume-img"
+            width="24px"
+            src="./assets/icons/volume-icon.svg"
+            alt="volume"
+          />
+        </button>
+        <input
+          type="range"
+          id="volume-bar"
+          min="0"
+          max="1"
+          value="0.5"
+          step="0.01"
+        />
       </div>
     </footer>
     <script src="script.js"></script>

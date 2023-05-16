@@ -1,157 +1,160 @@
 :root {
-    --header-height: 70px;
-    --footer-height: 70px;
-    --main-height: calc(100vh - var(--header-height) - var(--footer-height));
-    --nav-width: 150px;
-    --background-dark: rgb(41, 37, 37);
-    --background-darker: rgb(22, 21, 21);
+  --header-height: 70px;
+  --footer-height: 70px;
+  --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+  --nav-width: 150px;
+  --background-dark: rgb(41, 37, 37);
+  --background-darker: rgb(22, 21, 21);
 }
 
 .container {
-    display: flex;
+  display: flex;
 }
 nav {
-    background-color: var(--background-dark);
-    min-width: var(--nav-width);
-    padding: 20px;
-    color: #fff;
+  background-color: var(--background-dark);
+  min-width: var(--nav-width);
+  padding: 20px;
+  color: #fff;
 }
 
 h1 {
-    all: unset;
-    font-size: 24px;
+  all: unset;
+  font-size: 24px;
 }
 
 nav > section > span {
-    all: unset;
-    font-size: 18px;
-    width: 75px;
-    margin-bottom: 10px;
+  all: unset;
+  font-size: 18px;
+  width: 75px;
+  margin-bottom: 10px;
 }
 
 nav > section > a > span {
-    margin-left: 10px;
+  margin-left: 10px;
 }
 
 nav > section > a {
-    all: unset;
-    width: 75px;
-    margin-top: 10px;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
+  all: unset;
+  width: 75px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 nav > section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 60px;
 }
 
 .content {
-    width: 100%;
+  width: 100%;
 }
 
 .user-image {
-    border-radius: 50%;
-    background-image: url(./assets/images/joker.jpg);
-    width: 50px;
-    height: 50px;
-    background-size: cover;
-    background-position: center;
+  border-radius: 50%;
+  background-image: url(./assets/images/joker.jpg);
+  width: 50px;
+  height: 50px;
+  background-size: cover;
+  background-position: center;
 }
 
 header {
-    background-color: #fff;
-    height: var(--header-height);
+  background-color: #fff;
+  height: var(--header-height);
 }
 
 header > section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 100%;
-    padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  padding: 0 15px;
 }
 
 header > section > h2 {
-    all: unset;
-    font-size: 18px;
-    font-weight: 600;
-    color: rgb(220, 5, 228);
+  all: unset;
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(220, 5, 228);
 }
 
 header > section > article {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 header > section > article > * {
-    margin-left: 10px;
-    cursor: pointer;
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 main {
-    background-color: blueviolet;
-    height: var(--main-height);
+  background-color: #fff;
+  height: var(--main-height);
 }
 
 footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: var(--background-darker);
-    height: var(--footer-height);
-    color:white;
-    padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--background-darker);
+  height: var(--footer-height);
+  color: white;
+  padding: 0 15px;
 }
 
 body {
-    margin: 0;
-    display: block;
-    width: 100vw;
-    min-height: 100vh;
+  margin: 0;
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
 }
 
 img {
   color: white;
 }
 
-footer > buton, button {
+footer > buton,
+button {
   all: unset;
   cursor: pointer;
-}
-
-svg {
-  fill: currentColor;
 }
 
 .play-button {
   background-color: red;
   border-radius: 50%;
-  
+  width: 40px;
+  height: 40px;
 }
-.progress{
+.progress {
   display: flex;
 }
-.progress  >input{
-  width: calc(100vw - 650px);
+.progress > input {
+  width: calc(100vw - 800px);
   min-width: 100px;
   border-radius: 5px;
 }
-.control{
+.control {
   display: flex;
   align-items: center;
 }
-.control > *{
+.control > * {
   margin-right: 15px;
 }
 
-.actions{
+.actions {
   display: flex;
   align-items: center;
 }
-.actions > *{
+.actions > button, .control > button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.actions > * {
   margin-right: 15px;
 }
