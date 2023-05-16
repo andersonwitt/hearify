@@ -1,97 +1,168 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles.css" />
-    <title>Hearify Web Player</title>
-  </head>
-  <body>
-    <div class="container">
-      <nav>
-        <h2>Library</h2>
-        <section>
-          <a
-            ><img
-              width="24"
-              src="./assets/icons/playlist-icon.svg"
-              alt="Playlists"
-            />
-            <span>Playlist</span>
-          </a>
-          <a
-            ><img
-              width="24"
-              src="./assets/icons/person-icon.svg"
-              alt="Playlists"
-            />
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="styles.css" />
+        <title>Hearify Web Player</title>
+    </head>
+    <body>
+        <div class="container">
+            <nav>
+                <h1>Hearify</h1>
+                <section>
+                    <span>Library</span>
+                    <a
+                        ><img
+                            width="24"
+                            src="./assets/icons/playlist-icon.svg"
+                            alt="Playlists"
+                        />
+                        <span>Playlist</span>
+                    </a>
+                    <a
+                        ><img
+                            width="24"
+                            src="./assets/icons/person-icon.svg"
+                            alt="Playlists"
+                        />
 
-            <span>Artists</span>
-          </a>
-        </section>
-      </nav>
-      <div class="content">
-        <header>
-          <section>
-            <span>Artists</span>
-            <article>
-              <img />
-              <span>My music</span>
-              <img />
-            </article>
-          </section>
-        </header>
+                        <span>Artists</span>
+                    </a>
+                </section>
+            </nav>
+            <div class="content">
+                <header>
+                    <section>
+                        <h2>Artists</h2>
+                        <article>
+                            <img
+                                width="24px"
+                                height="24px"
+                                src="./assets/icons/favorite-icon.svg"
+                                alt="Favorites"
+                            />
+                            <span>My music</span>
+                            <div class="user-image">
+                                <!-- <img
+                                    width="50px"
+                                    src="./assets/images/joker.jpg"
+                                    alt="User logged in"
+                                /> -->
+                            </div>
+                        </article>
+                    </section>
+                </header>
 
-        <main>
-          <section>
-            <img />
-            <h1>Most Popular</h1>
-            <article>
-              <h2>Linkin Parça</h2>
-            </article>
-            <img />
-          </section>
-          <section>
-            <section>
-              <h2>This Week: Most Trending Music</h2>
-              <div></div>
-              <div></div>
-              <div></div>
-            </section>
-            <section>
-              <article>
-                <span>1</span>
-                <span>The Weeknd - Real Life</span>
-                <span>04:34</span>
-              </article>
-            </section>
-            <section>
-              <h2>Listen This Weekend</h2>
-              <section>
-                <article>
-                  <header></header>
-                  <span>Beyonce</span>
-                  <div></div>
-                </article>
-              </section>
-            </section>
-          </section>
-        </main>
-      </div>
-    </div>
-    <footer>
-      <div>1</div>
-      <div>2</div>
-      <div>3</div>
-      <div>4</div>
-      <span>01:01</span>
-      <div>5</div>
-      <span>00:15</span>
-      <div>6</div>
-      <div>7</div>
-      <div>8</div>
-      <div>9</div>
-    </footer>
-  </body>
+                <main>
+                    <section>
+                        <img />
+                        <h1>Most Popular</h1>
+                        <article>
+                            <h2>Linkin Parça</h2>
+                        </article>
+                        <img />
+                    </section>
+                    <section>
+                        <section>
+                            <h2>This Week: Most Trending Music</h2>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </section>
+                        <section>
+                            <article>
+                                <span>1</span>
+                                <span>The Weeknd - Real Life</span>
+                                <span>04:34</span>
+                            </article>
+                        </section>
+                        <section>
+                            <h2>Listen This Weekend</h2>
+                            <section>
+                                <article>
+                                    <span>Beyonce</span>
+                                    <div></div>
+                                </article>
+                            </section>
+                        </section>
+                    </section>
+                </main>
+            </div>
+        </div>
+        <footer>
+            <div class="control">
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/fast-rewind-icon.svg"
+                        alt="fast rewind "
+                    />
+                </button>
+                <button class="play-button">
+                    <img
+                        width="24px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play"
+                    />
+                </button>
+
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/fast-forward-icon.svg"
+                        alt="fast forward"
+                    />
+                </button>
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/queued-music-icon.svg"
+                        alt="queued"
+                    />
+                </button>
+            </div>
+            
+            <div class="progress">
+                <span>01:01</span>
+               <input type="range"/>
+                <span>00:15</span>
+            </div>
+
+            <div class="actions">
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/volume-icon.svg"
+                        alt="volume"
+                    />
+                </button>
+
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/favorite-white-icon.svg"
+                        alt="favorite"
+                    />
+                </button>
+
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/replay-icon.svg"
+                        alt="replay"
+                    />
+                </button>
+
+                <button>
+                    <img
+                        width="24px"
+                        src="./assets/icons/repeat-icon.svg"
+                        alt="repeat"
+                    />
+                </button>
+            </div>
+        </footer>
+    </body>
 </html>
