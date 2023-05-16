@@ -1,0 +1,56 @@
+.container {
+  display: flex;
+}
+nav {
+  background-color: rgb(41, 37, 37);
+  min-width: 100px;
+  padding: 10px;
+  color: #fff;
+}
+
+nav > section > a > span {
+  margin-left: 10px;
+}
+
+nav > section > a {
+  all: unset;
+  width: 75px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+nav > section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.content {
+  width: 100%;
+}
+
+header {
+  background-color: blue;
+}
+
+main {
+  background-color: blueviolet;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  background-color: gold;
+}
+
+h2 {
+  all: unset;
+  font-size: 16px;
+}
+body {
+  margin: 0;
+  display: block;
+  width: 100vw;
+  min-height: 100vh;
+}
