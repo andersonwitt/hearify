@@ -71,7 +71,7 @@ header > section {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 15px;
+  padding: 0 20px;
 }
 
 header > section > h2 {
@@ -95,6 +95,53 @@ header > section > article > * {
 main {
   background-color: #fff;
   height: var(--main-height);
+  padding: 0 15px;
+}
+
+.card {
+  background-color: blue;
+  border-radius: 5px;
+  width: 300px;
+  height: 300px;
+  margin-right: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  cursor: pointer;
+  /* opacity: 0.8; */
+}
+
+.card:hover {
+  /* transform: scale(1.1); */
+  /* opacity: 1; */
+}
+
+.card > section {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.artists-content {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+  position: static;
+}
+
+.artists-content > button {
+  position: absolute;
+  margin-top: 100px;
+  background-color: rgba(69, 67, 67, 0.477);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 footer {
