@@ -198,6 +198,9 @@ body {
 
 img {
   color: white;
+  
+}
+.article-content > img{
   cursor: pointer;
 }
 
