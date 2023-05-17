@@ -216,3 +216,28 @@ button {
 .actions > * {
   margin-right: 15px;
 }
+
+.friends{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.friends > div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.friends > div > div{
+  display: flex;
+  flex-direction: column;
+  margin-left: 25px;
+
+}
+.text-light{
+  color: #808080;
+  margin-top: 0.6rem;
+  font-size: 14px;
+}
