@@ -71,7 +71,7 @@ header > section {
   justify-content: space-between;
   align-items: center;
   height: 100%;
-  padding: 0 20px;
+  padding: 0 50px;
 }
 
 header > section > h2 {
@@ -95,26 +95,30 @@ header > section > article > * {
 main {
   background-color: #fff;
   height: var(--main-height);
-  padding: 0 15px;
+  padding: 0 50px;
 }
 
 .card {
-  background-color: blue;
+  font-family: 'Vast Shadow', cursive;
   border-radius: 5px;
-  width: 300px;
   height: 300px;
-  margin-right: 20px;
+  width: 450px;
+  margin-right: 35px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   cursor: pointer;
-  /* opacity: 0.8; */
+  color: #fff;
+  background-repeat: no-repeat;
+  background-size: 450px 300px;
+  box-shadow: 4px 6px 13px -4px rgba(0,0,0,0.68);
+  opacity: 0.8;
 }
 
 .card:hover {
-  /* transform: scale(1.1); */
-  /* opacity: 1; */
+  transform: scale(1.1);
+  opacity: 1;
 }
 
 .card > section {
@@ -142,6 +146,11 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.songs-info {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 footer {
