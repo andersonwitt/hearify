@@ -11,11 +11,23 @@
 .container {
   display: flex;
 }
+.inline-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.inline-section > * {
+  margin-right: 5px;
+}
+
 nav {
   background-color: var(--background-dark);
   min-width: var(--nav-width);
-  padding: 20px;
   color: #fff;
+  width: 200px;
 }
 
 h1 {
@@ -40,8 +52,15 @@ nav > section > a {
   margin-top: 10px;
   display: flex;
   align-items: center;
+  justify-content: center;
   cursor: pointer;
+  width: 100%;
 }
+
+nav > section > a:hover {
+  border-left: 5px solid #fff;
+}
+
 nav > section {
   display: flex;
   flex-direction: column;
@@ -51,11 +70,12 @@ nav > section {
 
 .content {
   width: 100%;
+  overflow-x: scroll;
+  max-height: calc(100vh - 70px);
 }
 
 .user-image {
   border-radius: 50%;
-  background-image: url(./assets/images/joker.jpg);
   width: 50px;
   height: 50px;
   background-size: cover;
@@ -136,7 +156,7 @@ main {
   margin-top: 15px;
   position: static;
   overflow-x: scroll;
-  padding: 15px 0;
+  padding: 30px;
 }
 
 .artists-content > button {
@@ -154,6 +174,7 @@ main {
 .songs-info {
   display: grid;
   grid-template-columns: 1.5fr 1fr;
+  gap: 30px;
 }
 
 footer {
@@ -164,6 +185,8 @@ footer {
   height: var(--footer-height);
   color: white;
   padding: 0 15px;
+  position: fixed;
+  width: calc(100vw - 30px);
 }
 
 body {
@@ -225,7 +248,7 @@ button {
   margin-bottom: 15px;
 }
 
-.article-content  > div{
+.article-content  > div {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,7 +257,7 @@ button {
 .article-content  > div > div{
   display: flex;
   flex-direction: column;
-  margin-left: 25px;
+  margin-right: 25px;
 
 }
 .text-light{
