@@ -135,6 +135,7 @@ main {
   margin-top: 15px;
   position: static;
   overflow-x: scroll;
+  padding: 15px 0;
 }
 
 .artists-content > button {
