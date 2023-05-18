@@ -13,6 +13,14 @@ h1 {
   font-family: "Wix Madefor Text", sans-serif;
 }
 
+.hide {
+  display: none;
+}
+
+.mr-1 {
+  margin-right: 15px;
+}
+
 .container {
   display: flex;
 }
@@ -166,14 +174,15 @@ main {
   max-width: calc(100vw - 305px);
   margin-top: 15px;
   position: static;
-  overflow-x: scroll;
+  overflow: hidden;
   padding: 30px;
 }
 
 .artists-content > button {
   position: absolute;
+  z-index: 999999;
   margin-top: 100px;
-  background-color: rgba(69, 67, 67, 0.477);
+  background-color: rgba(69, 67, 67, 0.7);
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -181,6 +190,12 @@ main {
   align-items: center;
   justify-content: center;
 }
+
+
+.artists-content > :nth-last-child(1) {
+  right: 115px;
+}
+
 
 .songs-info {
   display: grid;
@@ -228,7 +243,28 @@ button {
   cursor: pointer;
 }
 
+.d-flex {
+  display: flex;
+}
+
+.active {
+  color: #c62828;
+}
+
+
+
+.play-button-sm {
+  align-items: center;
+  justify-content: center;
+  background-color: red;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+}
+
 .play-button {
+  align-items: center;
+  justify-content: center;
   background-color: red;
   border-radius: 50%;
   width: 40px;
@@ -269,6 +305,7 @@ button {
   align-items: center;
   justify-content: space-between;
   margin-bottom: 15px;
+  cursor: pointer;
 }
 
 .article-content > div {
@@ -283,7 +320,7 @@ button {
   margin-right: 25px;
 }
 .text-light {
-  color: #808080;
+  opacity: 0.6;
   margin-top: 0.6rem;
   font-size: 14px;
 }
@@ -297,3 +334,6 @@ hr {
   border: 1px solid #d3d3d3;
   border-radius: 1px;
 }
+
+
+

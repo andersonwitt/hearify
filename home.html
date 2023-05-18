@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="favicon.png" />
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text&display=swap"
+      rel="stylesheet"
+    />
+    <title>Hearify Web Player</title>
+  </head>
+  <body>
+    <div class="container">
+      <nav>
+        <section class="inline-section">
+          <img
+            width="24"
+            src="./assets/icons/hearify-icon.svg"
+            alt="Playlists"
+          />
+          <h1>Hearify</h1>
+        </section>
+        <section>
+          <span>Library</span>
+          <a>
+            <img
+              width="24"
+              src="./assets/icons/playlist-icon.svg"
+              alt="Playlists"
+            />
+            <span>Playlist</span>
+          </a>
+          <a>
+            <img
+              width="24"
+              src="./assets/icons/person-icon.svg"
+              alt="Playlists"
+            />
+            <span>Artists</span>
+          </a>
+        </section>
+      </nav>
+      <div class="content">
+        <header>
+          <section>
+            <h2>Artists</h2>
+            <article>
+              <img
+                width="24px"
+                height="24px"
+                src="./assets/icons/favorite-icon.svg"
+                alt="Favorites"
+              />
+              <span>Joker</span>
+              <div
+                class="user-image"
+                style="background-image: url(./assets/images/joker.jpg)"
+              ></div>
+            </article>
+          </section>
+        </header>
+
+        <main>
+          <section>
+            <h1>Most Popular</h1>
+            <div class="artists-content">
+              <button id="arrow-back-button">
+                <img
+                  src="./assets/icons/arrow-back-icon.svg"
+                  width="24px"
+                  height="24px"
+                  alt="back button"
+                />
+              </button>
+              <article
+                class="card"
+                style="
+                  background-image: url(./assets/images/linkin-park-cover.jpg);
+                "
+              >
+                <h2>Linkin Park</h2>
+                <section class="artist-info">
+                  <span>23 albuns</span>
+                  <span>10.5M de seguidores</span>
+                </section>
+              </article>
+              <article
+                class="card"
+                style="
+                  background-image: url(./assets/images/katy-perry-cover.jpg);
+                "
+              >
+                <h2>Katy Perry</h2>
+                <section>
+                  <span>23 albuns</span>
+                  <span>10.5M de seguidores</span>
+                </section>
+              </article>
+              <article
+                class="card"
+                style="
+                  background-image: url(./assets/images/ed-sheeran-cover.png);
+                "
+              >
+                <h2>Ed Sheeran</h2>
+                <section>
+                  <span>23 albuns</span>
+                  <span>10.5M de seguidores</span>
+                </section>
+              </article>
+
+              <article
+                class="card"
+                style="
+                  background-image: url(./assets/images/jack-johnson-cover.jpg);
+                "
+              >
+                <h2>Jack Jhonson</h2>
+                <section class="artist-info">
+                  <span>23 albuns</span>
+                  <span>10.5M de seguidores</span>
+                </section>
+              </article>
+
+              <article
+                class="card"
+                style="background-image: url(./assets/images/baitaca-cover.jpg)"
+              >
+                <h2>Baitaca</h2>
+                <section class="artist-info">
+                  <span>23 albuns</span>
+                  <span>10.5M de seguidores</span>
+                </section>
+              </article>
+
+              <button id="arrow-next-button">
+                <img
+                  src="./assets/icons/arrow-forward-icon.svg"
+                  width="24px"
+                  height="24px"
+                  alt="next button"
+                />
+              </button>
+            </div>
+          </section>
+          <section class="songs-info">
+            <section>
+              <h2>This Week: Most Trending Music</h2>
+              <section>
+                <article id="song1" class="article-content">
+                  <div>
+                    <button id="play-song-1" class="play-button-sm d-flex mr-1">
+                      <img
+                        id="play-song-image-1"
+                        width="18px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play song 1"
+                      />
+                    </button>
+                    <span id="song-number-1">1.</span>
+                    <span id="song-name-1">The Weeknd - Blinding Lights</span>
+                  </div>
+                  <span class="text-light" id="song-duration-1">03:23</span>
+                </article>
+                <hr />
+                <article id="song2" class="article-content">
+                  <div>
+                    <button id="play-song-2" class="play-button-sm hide mr-1">
+                      <img
+                        id="play-song-image-2"
+                        width="18px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play song 2"
+                      />
+                    </button>
+                    <span id="song-number-2">2.</span>
+                    <span id="song-name-2">Jack Jhonson - Banana Pancakes</span>
+                  </div>
+                  <span class="text-light" id="song-duration-2">03:11</span>
+                </article>
+                <hr />
+                <article id="song3" class="article-content">
+                  <div>
+                    <button id="play-song-3" class="play-button-sm hide mr-1">
+                      <img
+                        id="play-song-image-3"
+                        width="18px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play song 3"
+                      />
+                    </button>
+                    <span id="song-number-3">3.</span>
+                    <span id="song-name-3">Racionais MC's - Nego Drama</span>
+                  </div>
+                  <span class="text-light" id="song-duration-3">06:52</span>
+                </article>
+                <hr />
+                <article id="song4" class="article-content">
+                  <div>
+                    <button id="play-song-4" class="play-button-sm hide mr-1">
+                      <img
+                        id="play-song-image-4"
+                        width="18px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play song 4"
+                      />
+                    </button>
+                    <span id="song-number-4">4.</span>
+                    <span id="song-name-4">Lady Gaga - Shallow</span>
+                  </div>
+                  <span class="text-light" id="song-duration-4">03:37</span>
+                </article>
+                <hr />
+                <article id="song5" class="article-content">
+                  <div>
+                    <button id="play-song-5" class="play-button-sm hide mr-1">
+                      <img
+                        id="play-song-image-5"
+                        width="18px"
+                        src="./assets/icons/play-icon.svg"
+                        alt="play song 5"
+                      />
+                    </button>
+                    <span id="song-number-5">5.</span>
+                    <span id="song-name-5"> Illsionize - Moogzera</span>
+                  </div>
+                  <span class="text-light" id="song-duration-5">03:11</span>
+                </article>
+                <hr />
+              </section>
+            </section>
+            <section>
+              <h2>Listen This Weekend</h2>
+              <section>
+                <article class="article-content">
+                  <div>
+                    <div
+                      class="user-image"
+                      style="background-image: url(./assets/images/user-1.jpeg)"
+                    ></div>
+                    <div>
+                      <span>Leonardo Brehm</span>
+                      <span class="text-light">Banana Pancakes</span>
+                    </div>
+                  </div>
+                  <img src="./assets/icons/more-icon.svg" alt="Brehm menu" />
+                </article>
+
+                <article class="article-content">
+                  <div>
+                    <div
+                      class="user-image"
+                      style="background-image: url(./assets/images/user-2.jpeg)"
+                    ></div>
+                    <div>
+                      <span>Anderson Witt</span>
+                      <span class="text-light">Blinding Lights</span>
+                    </div>
+                  </div>
+                  <img src="./assets/icons/more-icon.svg" alt="anderson menu" />
+                </article>
+
+                <article class="article-content">
+                  <div>
+                    <div
+                      class="user-image"
+                      style="background-image: url(./assets/images/user-3.jpeg)"
+                    ></div>
+                    <div>
+                      <span>Chris Bittencourt</span>
+                      <span class="text-light">Nego Drama</span>
+                    </div>
+                  </div>
+                  <img src="./assets/icons/more-icon.svg" alt="chris menu" />
+                </article>
+
+                <article class="article-content">
+                  <div>
+                    <div
+                      class="user-image"
+                      style="background-image: url(./assets/images/user-4.jpeg)"
+                    ></div>
+                    <div>
+                      <span>Lady Gaga</span>
+                      <span class="text-light">Shallow</span>
+                    </div>
+                  </div>
+                  <img src="./assets/icons/more-icon.svg" alt="Lady menu" />
+                </article>
+              </section>
+            </section>
+          </section>
+        </main>
+      </div>
+    </div>
+    <footer>
+      <div class="control">
+        <button id="fast-rewind-button">
+          <img
+            width="24px"
+            src="./assets/icons/fast-rewind-icon.svg"
+            alt="fast rewind "
+          />
+        </button>
+        <button id="play-button" class="play-button">
+          <img
+            id="play-image"
+            width="24px"
+            src="./assets/icons/play-icon.svg"
+            alt="play"
+          />
+        </button>
+
+        <button id="fast-forward-button">
+          <img
+            width="24px"
+            src="./assets/icons/fast-forward-icon.svg"
+            alt="fast forward"
+          />
+        </button>
+        <button>
+          <img
+            width="24px"
+            src="./assets/icons/queued-music-icon.svg"
+            alt="queued"
+          />
+        </button>
+      </div>
+
+      <div class="progress">
+        <div id="duration-progress">00:00</div>
+        <input type="range" id="progress-bar" min="0" value="0" step="0.01" />
+        <div id="duration">00:00</div>
+        <audio id="hearify-audio">
+          <source
+            id="hearify-source"
+            src="./assets/songs/the-weeknd-blinding-lights.mp3"
+            type="audio/mpeg"
+            preload="auto"
+          />
+          Your browser does not support the audio element.
+        </audio>
+      </div>
+
+      <div class="actions">
+        <button id="favorite-button">
+          <img
+            id="favorite-image"
+            width="24px"
+            src="./assets/icons/favorite-white-icon.svg"
+            alt="favorite"
+          />
+        </button>
+
+        <button id="replay-button">
+          <img width="24px" src="./assets/icons/replay-icon.svg" alt="replay" />
+        </button>
+
+        <button id="repeat-button">
+          <img
+            id="repeat-img"
+            width="24px"
+            src="./assets/icons/repeat-icon.svg"
+            alt="repeat"
+          />
+        </button>
+
+        <button id="volume-button">
+          <img
+            id="volume-img"
+            width="24px"
+            src="./assets/icons/volume-icon.svg"
+            alt="volume"
+          />
+        </button>
+        <input
+          type="range"
+          id="volume-bar"
+          min="0"
+          max="1"
+          value="0.5"
+          step="0.01"
+        />
+      </div>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>
