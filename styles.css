@@ -233,6 +233,7 @@ body {
 
 img {
   color: white;
+  width: 30px;
 }
 
 .article-content>img {
@@ -391,4 +392,5 @@ form {
 
 .article-login{
   color: white;
+  font-size: 25px;
 }
