@@ -123,7 +123,6 @@ playButton.addEventListener("click", () => {
 });
 
 progressRange.addEventListener("change", (e) => {
-  debugger;
   const progress = Number(e.target.value);
   if (audio?.currentTime) {
     const wasPaused = audio.paused;
