@@ -20,247 +20,267 @@ const repeatImage = document.getElementById("repeat-img");
 const audio = document.getElementById("hearify-audio");
 
 const songs = [
-  "./assets/songs/the-weeknd-blinding-lights.mp3",
-  "./assets/songs/jack-jhonson-banana-pancakes.mp3",
-  "./assets/songs/racionais-negro-drama.mp3",
-  "./assets/songs/lady-gaga-shallow.mp3",
-  "./assets/songs/illusionize-moogzera.mp3",
+    "./assets/songs/the-weeknd-blinding-lights.mp3",
+    "./assets/songs/jack-jhonson-banana-pancakes.mp3",
+    "./assets/songs/racionais-negro-drama.mp3",
+    "./assets/songs/lady-gaga-shallow.mp3",
+    "./assets/songs/illusionize-moogzera.mp3",
 ];
 
 let currentSongIndex = 0;
+let currentSongTime = 0;
 let isFavorite = false;
+let isSeeking = false;
 let isRepeat = false;
 let duration = 0;
 let volume = 0.5;
 
-function playSong() {
-  if (audio.paused) {
-    audio.volume = volume;
-    audio.play();
-  } else {
-    audio.pause();
-  }
-}
-
-function handleSongQueue(index, callback) {
-  const button = document.getElementById(`play-song-${index + 1}`);
-  const songNumber = document.getElementById(`song-number-${index + 1}`);
-  const songArticle = document.getElementById(`song${index + 1}`);
-
-  if (currentSongIndex === index) {
-    button.classList.remove("hide");
-    button.classList.add("d-flex");
-    songNumber.classList.add("hide");
-    songArticle.classList.add("active");
-
-    if (callback) {
-      callback(index);
+const playSong = () => {
+    if (audio.paused) {
+        audio.volume = volume;
+        audio.play();
+    } else {
+        audio.pause();
     }
-  } else {
-    button.classList.add("hide");
-    button.classList.remove("d-flex");
-    songNumber.classList.remove("hide");
-    songArticle.classList.remove("active");
-  }
-}
+};
+
+const handleSongQueue = (index, callback) => {
+    const button = document.getElementById(`play-song-${index + 1}`);
+    const songNumber = document.getElementById(`song-number-${index + 1}`);
+    const songArticle = document.getElementById(`song${index + 1}`);
+
+    if (currentSongIndex === index) {
+        button.classList.remove("hide");
+        button.classList.add("d-flex");
+        songNumber.classList.add("hide");
+        songArticle.classList.add("active");
+
+        if (callback) {
+            callback(index);
+        }
+    } else {
+        button.classList.add("hide");
+        button.classList.remove("d-flex");
+        songNumber.classList.remove("hide");
+        songArticle.classList.remove("active");
+    }
+};
 
 function handleClickQueue(index) {
-  return function () {
-    if (currentSongIndex !== index) {
-      currentSongIndex = index;
-      audio.pause();
-      audioSource.src = songs[currentSongIndex];
-      audio.load();
-      audio.play();
-    }
-  };
+    return function () {
+        if (currentSongIndex !== index) {
+            currentSongIndex = index;
+
+            audio.src = songs[currentSongIndex];
+            audio.load();
+            audio.addEventListener("canplay", () => {
+                if (!isSeeking) {
+                    audio.play();
+                }
+            });
+        }
+    };
 }
 
 function onLoad() {
-  songs.forEach((_, index) => {
-    const button = document.getElementById(`play-song-${index + 1}`);
-    const songArticle = document.getElementById(`song${index + 1}`);
-    handleSongQueue(index);
-    button.addEventListener("click", playSong);
-    songArticle.addEventListener("click", handleClickQueue(index));
-  });
+    audio.src = songs[currentSongIndex];
+    if (audio) {
+        audio.load();
+    }
+    songs.forEach((_, index) => {
+        const button = document.getElementById(`play-song-${index + 1}`);
+        const songArticle = document.getElementById(`song${index + 1}`);
+        handleSongQueue(index);
+        button.addEventListener("click", playSong);
+        songArticle.addEventListener("click", handleClickQueue(index));
+    });
 }
 
 audio.addEventListener("durationchange", () => {
-  var _player = new Audio(songs[currentSongIndex]);
+    const _player = new Audio(songs[currentSongIndex]);
 
-  _player.addEventListener(
-    "durationchange",
-    function () {
-      if (this.duration != Infinity) {
-        duration = this.duration;
-        _player.remove();
-      }
-    },
-    false
-  );
+    _player.addEventListener(
+        "durationchange",
+        function () {
+            if (this.duration != Infinity) {
+                duration = this.duration;
+                _player.remove();
+            }
+        },
+        false
+    );
 
-  _player.load();
-  _player.currentTime = 24 * 60 * 60;
-  _player.volume = 0;
+    _player.load();
+    _player.currentTime = 24 * 60 * 60;
+    _player.volume = 0;
 });
 
 function repeat() {
-  if (!audio.paused) {
-    audio.pause();
-  }
-  audio.currentTime = 0;
+    if (!audio.paused) {
+        audio.pause();
+    }
+    audio.currentTime = 0;
 
-  audio.play();
+    audio.play();
 }
 
 function nextSong() {
-  if (currentSongIndex < 4) {
-    currentSongIndex += 1;
-  } else {
-    currentSongIndex = 0;
-  }
+    if (currentSongIndex < 4) {
+        currentSongIndex += 1;
+    } else {
+        currentSongIndex = 0;
+    }
 
-  audio.pause();
-  audioSource.src = songs[currentSongIndex];
-  audio.load();
-  audio.play();
+    audio.src = songs[currentSongIndex];
+    audio.load();
+    audio.addEventListener("canplay", () => {
+        if (!isSeeking) {
+            audio.play();
+        }
+    });
 }
 
-function updateProgress() {
-  const currentTime = audio.currentTime;
+function updateProgress(e) {
+    const currentTime = e.target.currentTime;
 
-  const progressPercent = (currentTime / duration) * 100;
-  progressRange.value = progressPercent;
+    const progressPercent = (currentTime / duration) * 100;
+    progressRange.value = progressPercent;
 
-  const currentMinutes = Math.floor(currentTime / 60);
-  const currentSeconds = Math.floor(currentTime % 60);
-  const durationMinutes = Math.floor(duration / 60);
-  const durationSeconds = Math.floor(duration % 60);
+    const currentMinutes = Math.floor(currentTime / 60);
+    const currentSeconds = Math.floor(currentTime % 60);
+    const durationMinutes = Math.floor(duration / 60);
+    const durationSeconds = Math.floor(duration % 60);
 
-  durationDisplay.textContent = `${formatTime(durationMinutes)}:${formatTime(
-    durationSeconds
-  )}`;
+    durationDisplay.textContent = `${formatTime(durationMinutes)}:${formatTime(
+        durationSeconds
+    )}`;
 
-  durationProgress.textContent = `${formatTime(currentMinutes)}:${formatTime(
-    currentSeconds
-  )}`;
+    durationProgress.textContent = `${formatTime(currentMinutes)}:${formatTime(
+        currentSeconds
+    )}`;
+}
 
-  if (durationDisplay.textContent === durationProgress.textContent) {
+function handleEndSong() {
     if (isRepeat) {
-      repeat();
-      return;
+        repeat();
+        return;
     }
 
     if (currentSongIndex < 4) {
-      nextSong();
-      return;
+        nextSong();
+        return;
     }
 
     audio.currentTime = 0;
-  }
 }
 
 function formatTime(time) {
-  return time < 10 ? `0${time}` : time;
+    return time < 10 ? `0${time}` : time;
+}
+
+function setAudioCurrentTime(currentTime) {
+    if (
+        !isNaN(audio.duration) &&
+        isFinite(audio.duration) &&
+        currentTime >= 0 &&
+        currentTime <= audio.duration
+    ) {
+        audio.currentTime = currentTime;
+    }
 }
 
 function handleProgressRangeChanged(e) {
-  const progress = Number(e.target.value);
-  if (audio?.currentTime) {
-    const wasPaused = audio.paused;
-    audio.pause();
-    audio.currentTime = (progress / 100) * duration;
-    if (!wasPaused) {
-      audio.play();
+    const progress = Number(e.target.value);
+
+    if (audio?.currentTime >= 0 && duration >= 0 && progress >= 0) {
+        const currentTime = (progress / 100) * duration;
+
+        setAudioCurrentTime(currentTime);
     }
-  }
 }
 
 function handleRepeatClicked() {
-  isRepeat = !isRepeat;
-  if (isRepeat) {
-    repeatImage.src = "./assets/icons/repeat-selected-icon.svg";
-    return;
-  }
-  repeatImage.src = "./assets/icons/repeat-icon.svg";
+    isRepeat = !isRepeat;
+    if (isRepeat) {
+        repeatImage.src = "./assets/icons/repeat-selected-icon.svg";
+        return;
+    }
+    repeatImage.src = "./assets/icons/repeat-icon.svg";
 }
 
 function handleAudioPlay() {
-  playButtonImage.src = "./assets/icons/pause-icon.svg";
-  songs.forEach((_, index) => {
-    handleSongQueue(index, (index) => {
-      const img = document.getElementById(`play-song-image-${index + 1}`);
-      img.src = "./assets/icons/pause-icon.svg";
+    playButtonImage.src = "./assets/icons/pause-icon.svg";
+    songs.forEach((_, index) => {
+        handleSongQueue(index, (index) => {
+            const img = document.getElementById(`play-song-image-${index + 1}`);
+            img.src = "./assets/icons/pause-icon.svg";
+        });
     });
-  });
 }
 
 function handleAudioPause() {
-  playButtonImage.src = "./assets/icons/play-icon.svg";
-  songs.forEach((_, index) => {
-    if (currentSongIndex === index) {
-      const img = document.getElementById(`play-song-image-${index + 1}`);
-      img.src = "./assets/icons/play-icon.svg";
-    }
-  });
+    playButtonImage.src = "./assets/icons/play-icon.svg";
+    songs.forEach((_, index) => {
+        if (currentSongIndex === index) {
+            const img = document.getElementById(`play-song-image-${index + 1}`);
+            img.src = "./assets/icons/play-icon.svg";
+        }
+    });
 }
 
 function handleFastRewindClicked() {
-  if (currentSongIndex > 0) {
-    currentSongIndex -= 1;
-  } else {
-    currentSongIndex = 4;
-  }
+    if (currentSongIndex > 0) {
+        currentSongIndex -= 1;
+    } else {
+        currentSongIndex = 4;
+    }
 
-  audio.pause();
-  audioSource.src = songs[currentSongIndex];
-  audio.load();
-  audio.play();
+    audio.src = songs[currentSongIndex];
+    audio.play();
 }
 
 function handleVolumeChanged(e) {
-  volume = e.target.value;
-  audio.volume = volume;
-  if (volume == 0) {
-    volumeImage.src = "./assets/icons/volume-off-icon.svg";
-    return;
-  }
-  volumeImage.src = "./assets/icons/volume-icon.svg";
+    volume = e.target.value;
+    audio.volume = volume;
+    if (volume == 0) {
+        volumeImage.src = "./assets/icons/volume-off-icon.svg";
+        return;
+    }
+    volumeImage.src = "./assets/icons/volume-icon.svg";
 }
 
 function handleVolumeClicked() {
-  if (audio.volume > 0) {
-    volumeRange.value = 0;
-    audio.volume = 0;
-    volumeImage.src = "./assets/icons/volume-off-icon.svg";
-    return;
-  }
+    if (audio.volume > 0) {
+        volumeRange.value = 0;
+        audio.volume = 0;
+        volumeImage.src = "./assets/icons/volume-off-icon.svg";
+        return;
+    }
 
-  volumeRange.value = volume;
-  audio.volume = volume;
-  volumeImage.src = "./assets/icons/volume-icon.svg";
+    volumeRange.value = volume;
+    audio.volume = volume;
+    volumeImage.src = "./assets/icons/volume-icon.svg";
 }
 
 function handleFavoriteClicked() {
-  isFavorite = !isFavorite;
+    isFavorite = !isFavorite;
 
-  if (isFavorite) {
-    favoriteImage.src = "./assets/icons/favorite-selected-icon.svg";
-    return;
-  }
+    if (isFavorite) {
+        favoriteImage.src = "./assets/icons/favorite-selected-icon.svg";
+        return;
+    }
 
-  favoriteImage.src = "./assets/icons/favorite-icon.svg";
+    favoriteImage.src = "./assets/icons/favorite-icon.svg";
 }
 
 function handleSlide(left) {
-  return function () {
-    scrollContainer.scrollBy({
-      top: 0,
-      left: left,
-      behavior: "smooth",
-    });
-  };
+    return function () {
+        scrollContainer.scrollBy({
+            top: 0,
+            left: left,
+            behavior: "smooth",
+        });
+    };
 }
 
 window.addEventListener("load", onLoad);
@@ -269,7 +289,9 @@ audio.addEventListener("timeupdate", updateProgress);
 
 playButton.addEventListener("click", playSong);
 
-progressRange.addEventListener("change", handleProgressRangeChanged);
+audio.addEventListener("ended", handleEndSong);
+
+progressRange.addEventListener("input", handleProgressRangeChanged);
 
 replayButton.addEventListener("click", repeat);
 

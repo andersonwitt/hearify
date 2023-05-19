@@ -1,0 +1,8 @@
+:root {
+    --header-height: 70px;
+    --footer-height: 70px;
+    --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+    --nav-width: 150px;
+    --background-dark: rgb(41, 37, 37);
+    --background-darker: rgb(22, 21, 21);
+}

@@ -90,7 +90,7 @@
                 <h2>Linkin Park</h2>
                 <section class="artist-info">
                   <span>23 albuns</span>
-                  <span>10.5M de seguidores</span>
+                  <span>10.5M followers</span>
                 </section>
               </article>
               <article
@@ -102,7 +102,7 @@
                 <h2>Katy Perry</h2>
                 <section>
                   <span>23 albuns</span>
-                  <span>10.5M de seguidores</span>
+                  <span>10.5M followers</span>
                 </section>
               </article>
               <article
@@ -114,7 +114,7 @@
                 <h2>Ed Sheeran</h2>
                 <section>
                   <span>23 albuns</span>
-                  <span>10.5M de seguidores</span>
+                  <span>10.5M followers</span>
                 </section>
               </article>
 
@@ -127,7 +127,7 @@
                 <h2>Jack Jhonson</h2>
                 <section class="artist-info">
                   <span>23 albuns</span>
-                  <span>10.5M de seguidores</span>
+                  <span>10.5M followers</span>
                 </section>
               </article>
 
@@ -138,7 +138,7 @@
                 <h2>Baitaca</h2>
                 <section class="artist-info">
                   <span>23 albuns</span>
-                  <span>10.5M de seguidores</span>
+                  <span>10.5M followers</span>
                 </section>
               </article>
 
@@ -303,7 +303,7 @@
       </div>
     </div>
     <footer>
-      <div class="control">
+      <section class="control">
         <button id="fast-rewind-button">
           <img
             width="24px"
@@ -334,24 +334,18 @@
             alt="queued"
           />
         </button>
-      </div>
+      </section>
 
-      <div class="progress">
+      <section class="progress">
         <div id="duration-progress">00:00</div>
         <input type="range" id="progress-bar" min="0" value="0" step="0.01" />
         <div id="duration">00:00</div>
-        <audio id="hearify-audio">
-          <source
-            id="hearify-source"
-            src="./assets/songs/the-weeknd-blinding-lights.mp3"
-            type="audio/mpeg"
-            preload="auto"
-          />
+        <audio id="hearify-audio" src="">
           Your browser does not support the audio element.
         </audio>
-      </div>
+      </section>
 
-      <div class="actions">
+      <section class="actions">
         <button id="favorite-button">
           <img
             id="favorite-image"
@@ -387,10 +381,10 @@
           id="volume-bar"
           min="0"
           max="1"
-          value="0.5"
+          value="0"
           step="0.01"
         />
-      </div>
+      </section>
     </footer>
     <script src="script.js"></script>
   </body>

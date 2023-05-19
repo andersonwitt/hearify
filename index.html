@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="favicon.png" />
+        <link rel="stylesheet" href="login-styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text&display=swap"
+            rel="stylesheet"
+        />
+        <title>Hearify Web Player</title>
+    </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" href="favicon.png" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Vast+Shadow&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Wix+Madefor+Text&display=swap" rel="stylesheet" />
-  <title>Hearify Web Player</title>
-</head>
-
-<body class="bory">
-  <main class="background-login">
-    <section class="card-login">
-      <img width="24" src="./assets/icons/hearify-icon.svg" alt="Login" />
-      <article class="article-login">Hearify</article>
-      <section class="order">
-        <form style="    display: flex;
-        justify-content: left;
-        flex-direction: column;
-        margin: 10px;
-        padding: 5px;">
-          <label for="user-input" style="display: flex; justify-content: left;">Usuário</label>
-          <input id="user-input" style="margin: 5px;
-          width: 13rem;" />
-          <label for="password-input" style="display: flex; justify-content: left;">Senha</label>
-          <input id="password-input" style="margin: 5px;" />
-          <button style="    display: flex;
-          justify-content: center;
-          margin: 10px;">Entrar</button>
-        </form>
-      </section>
-    </section>
-
-  </main>
-
-</body>
-
+    <body>
+        <section class="card-login">
+            <img width="24" src="./assets/icons/hearify-icon.svg" alt="Login" />
+            <article class="article-login">Hearify</article>
+            <section class="order">
+                <form id="login-form">
+                    <label for="user-input">Email or username</label>
+                    <input id="user-input" placeholder="Email or username" />
+                    <label for="password-input">Password</label>
+                    <input
+                        id="password-input"
+                        placeholder="Password"
+                        type="password"
+                    />
+                    <button>Sign In</button>
+                </form>
+            </section>
+        </section>
+        <script src="login-script.js"></script>
+    </body>
 </html>
