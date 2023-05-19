@@ -19,11 +19,6 @@ const volumeImage = document.getElementById("volume-img");
 const repeatImage = document.getElementById("repeat-img");
 const audio = document.getElementById("hearify-audio");
 
-let isFavorite = false;
-let isRepeat = false;
-let currentSongIndex = 0;
-let duration = 0;
-
 const songs = [
   "./assets/songs/the-weeknd-blinding-lights.mp3",
   "./assets/songs/jack-jhonson-banana-pancakes.mp3",
@@ -32,16 +27,22 @@ const songs = [
   "./assets/songs/illusionize-moogzera.mp3",
 ];
 
+let currentSongIndex = 0;
+let isFavorite = false;
+let isRepeat = false;
+let duration = 0;
+let volume = 0.5;
+
 function playSong() {
   if (audio.paused) {
-    audio.play();
     audio.volume = volume;
+    audio.play();
   } else {
     audio.pause();
   }
 }
 
-const handleCurrentSong = (index, callback) => {
+function handleSongQueue(index, callback) {
   const button = document.getElementById(`play-song-${index + 1}`);
   const songNumber = document.getElementById(`song-number-${index + 1}`);
   const songArticle = document.getElementById(`song${index + 1}`);
@@ -51,48 +52,39 @@ const handleCurrentSong = (index, callback) => {
     button.classList.add("d-flex");
     songNumber.classList.add("hide");
     songArticle.classList.add("active");
-    callback?.(index);
+
+    if (callback) {
+      callback(index);
+    }
   } else {
     button.classList.add("hide");
     button.classList.remove("d-flex");
     songNumber.classList.remove("hide");
     songArticle.classList.remove("active");
   }
-};
+}
 
-window.onload = () => {
+function handleClickQueue(index) {
+  return function () {
+    if (currentSongIndex !== index) {
+      currentSongIndex = index;
+      audio.pause();
+      audioSource.src = songs[currentSongIndex];
+      audio.load();
+      audio.play();
+    }
+  };
+}
+
+function onLoad() {
   songs.forEach((_, index) => {
     const button = document.getElementById(`play-song-${index + 1}`);
-    const songNumber = document.getElementById(`song-number-${index + 1}`);
     const songArticle = document.getElementById(`song${index + 1}`);
-
-    if (currentSongIndex === index) {
-      button.classList.remove("hide");
-      button.classList.add("d-flex");
-      songNumber.classList.add("hide");
-      songArticle.classList.add("active");
-    } else {
-      button.classList.add("hide");
-      button.classList.remove("d-flex");
-      songNumber.classList.remove("hide");
-      songArticle.classList.remove("active");
-    }
+    handleSongQueue(index);
     button.addEventListener("click", playSong);
-    songArticle.addEventListener("click", () => {
-      if (currentSongIndex !== index) {
-        currentSongIndex = index;
-        audio.pause();
-        audioSource.src = songs[currentSongIndex];
-        audio.load();
-        audio.play();
-      }
-    });
+    songArticle.addEventListener("click", handleClickQueue(index));
   });
-};
-
-//playLinks();
-
-let volume = 0.5;
+}
 
 audio.addEventListener("durationchange", () => {
   var _player = new Audio(songs[currentSongIndex]);
@@ -173,11 +165,7 @@ function formatTime(time) {
   return time < 10 ? `0${time}` : time;
 }
 
-audio.addEventListener("timeupdate", updateProgress);
-
-playButton.addEventListener("click", playSong);
-
-progressRange.addEventListener("change", (e) => {
+function handleProgressRangeChanged(e) {
   const progress = Number(e.target.value);
   if (audio?.currentTime) {
     const wasPaused = audio.paused;
@@ -187,55 +175,38 @@ progressRange.addEventListener("change", (e) => {
       audio.play();
     }
   }
-});
+}
 
-replayButton.addEventListener("click", repeat);
-
-repeatButton.addEventListener("click", () => {
+function handleRepeatClicked() {
   isRepeat = !isRepeat;
   if (isRepeat) {
     repeatImage.src = "./assets/icons/repeat-selected-icon.svg";
     return;
   }
   repeatImage.src = "./assets/icons/repeat-icon.svg";
-});
+}
 
-fastForwardButton.addEventListener("click", nextSong);
-
-audio.addEventListener("play", () => {
+function handleAudioPlay() {
   playButtonImage.src = "./assets/icons/pause-icon.svg";
   songs.forEach((_, index) => {
-    const button = document.getElementById(`play-song-${index + 1}`);
-    const songNumber = document.getElementById(`song-number-${index + 1}`);
-    const songArticle = document.getElementById(`song${index + 1}`);
-
-    if (currentSongIndex === index) {
-      button.classList.remove("hide");
-      button.classList.add("d-flex");
-      songNumber.classList.add("hide");
-      songArticle.classList.add("active");
-
+    handleSongQueue(index, (index) => {
       const img = document.getElementById(`play-song-image-${index + 1}`);
       img.src = "./assets/icons/pause-icon.svg";
-    } else {
-      button.classList.add("hide");
-      button.classList.remove("d-flex");
-      songNumber.classList.remove("hide");
-      songArticle.classList.remove("active");
-    }
+    });
   });
-});
-audio.addEventListener("pause", () => {
+}
+
+function handleAudioPause() {
+  playButtonImage.src = "./assets/icons/play-icon.svg";
   songs.forEach((_, index) => {
     if (currentSongIndex === index) {
       const img = document.getElementById(`play-song-image-${index + 1}`);
       img.src = "./assets/icons/play-icon.svg";
     }
   });
-  playButtonImage.src = "./assets/icons/play-icon.svg";
-});
+}
 
-fastRewindButton.addEventListener("click", () => {
+function handleFastRewindClicked() {
   if (currentSongIndex > 0) {
     currentSongIndex -= 1;
   } else {
@@ -246,9 +217,9 @@ fastRewindButton.addEventListener("click", () => {
   audioSource.src = songs[currentSongIndex];
   audio.load();
   audio.play();
-});
+}
 
-volumeRange.addEventListener("input", (e) => {
+function handleVolumeChanged(e) {
   volume = e.target.value;
   audio.volume = volume;
   if (volume == 0) {
@@ -256,9 +227,9 @@ volumeRange.addEventListener("input", (e) => {
     return;
   }
   volumeImage.src = "./assets/icons/volume-icon.svg";
-});
+}
 
-volumeButton.addEventListener("click", () => {
+function handleVolumeClicked() {
   if (audio.volume > 0) {
     volumeRange.value = 0;
     audio.volume = 0;
@@ -269,9 +240,9 @@ volumeButton.addEventListener("click", () => {
   volumeRange.value = volume;
   audio.volume = volume;
   volumeImage.src = "./assets/icons/volume-icon.svg";
-});
+}
 
-favoriteButton.addEventListener("click", () => {
+function handleFavoriteClicked() {
   isFavorite = !isFavorite;
 
   if (isFavorite) {
@@ -280,19 +251,44 @@ favoriteButton.addEventListener("click", () => {
   }
 
   favoriteImage.src = "./assets/icons/favorite-icon.svg";
-});
+}
 
-arrowBackButton.addEventListener("click", () => {
-  scrollContainer.scrollBy({
-    top: 0,
-    left: -400,
-    behavior: "smooth",
-  });
-});
-arrowNextButton.addEventListener("click", () => {
-  scrollContainer.scrollBy({
-    top: 0,
-    left: 400,
-    behavior: "smooth",
-  });
-});
+function handleSlide(left) {
+  return function () {
+    scrollContainer.scrollBy({
+      top: 0,
+      left: left,
+      behavior: "smooth",
+    });
+  };
+}
+
+window.addEventListener("load", onLoad);
+
+audio.addEventListener("timeupdate", updateProgress);
+
+playButton.addEventListener("click", playSong);
+
+progressRange.addEventListener("change", handleProgressRangeChanged);
+
+replayButton.addEventListener("click", repeat);
+
+repeatButton.addEventListener("click", handleRepeatClicked);
+
+fastForwardButton.addEventListener("click", nextSong);
+
+audio.addEventListener("play", handleAudioPlay);
+
+audio.addEventListener("pause", handleAudioPause);
+
+fastRewindButton.addEventListener("click", handleFastRewindClicked);
+
+volumeRange.addEventListener("input", handleVolumeChanged);
+
+volumeButton.addEventListener("click", handleVolumeClicked);
+
+favoriteButton.addEventListener("click", handleFavoriteClicked);
+
+arrowBackButton.addEventListener("click", handleSlide(-400));
+
+arrowNextButton.addEventListener("click", handleSlide(400));
