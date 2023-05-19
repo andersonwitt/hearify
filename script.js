@@ -24,7 +24,7 @@ const songs = [
   "./assets/songs/jack-jhonson-banana-pancakes.mp3",
   "./assets/songs/racionais-negro-drama.mp3",
   "./assets/songs/lady-gaga-shallow.mp3",
-  "./assets/songs/illusionize-moogzera.mp3",
+  "./assets/songs/Illusionize-moogzera.mp3",
 ];
 
 let currentSongIndex = 0;
