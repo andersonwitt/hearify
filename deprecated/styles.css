@@ -1,0 +1,356 @@
+@import './constants.css';
+
+h1 {
+    all: unset;
+    font-size: 24px;
+    font-family: "Wix Madefor Text", sans-serif;
+}
+
+main > section {
+  position: relative;
+}
+
+.hide {
+    display: none;
+}
+
+.mr-1 {
+    margin-right: 15px;
+}
+
+.container {
+    display: flex;
+}
+
+.inline-section {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.inline-section > * {
+    margin-right: 5px;
+}
+
+nav {
+    background-color: var(--background-dark);
+    min-width: var(--nav-width);
+    color: #fff;
+    width: 200px;
+}
+
+nav > * {
+    font-family: "Wix Madefor Text", sans-serif;
+}
+
+nav > section > span {
+    all: unset;
+    font-size: 18px;
+    width: 75px;
+    margin-bottom: 10px;
+}
+
+nav > section > a > span {
+    margin-left: 10px;
+}
+
+nav > section > a {
+    all: unset;
+    width: 75px;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+}
+
+nav > section > a:hover {
+    border-left: 5px solid #fff;
+}
+
+nav > section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 60px;
+}
+
+.content {
+    width: 100%;
+    overflow: auto;
+    max-height: calc(100vh - 70px);
+}
+
+.user-image {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+header {
+    background-color: #fff;
+    height: var(--header-height);
+}
+
+header > * {
+    font-family: "Wix Madefor Text", sans-serif;
+}
+
+header > section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 0 50px;
+}
+
+header > section > h2 {
+    all: unset;
+    font-size: 18px;
+    font-weight: 600;
+    color: rgb(220, 5, 228);
+}
+
+header > section > article {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header > section > article > * {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+main {
+    background-color: #fff;
+    height: var(--main-height);
+    padding: 0 50px;
+}
+
+.card {
+    border-radius: 5px;
+    min-height: 300px;
+    min-width: 450px;
+    margin-right: 35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    cursor: pointer;
+    color: #fff;
+    background-repeat: no-repeat;
+    background-size: 450px 300px;
+    box-shadow: 4px 6px 13px -4px rgba(0, 0, 0, 0.68);
+    opacity: 0.8;
+}
+
+.card > * {
+    font-family: "Vast Shadow", cursive;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.card > section {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.artists-content {
+    display: flex;
+    max-width: calc(100vw - 305px);
+    margin-top: 15px;
+    overflow: hidden;
+    padding: 30px;
+}
+
+.artists-content > button {
+    position: absolute;
+    z-index: 999999;
+    margin-top: 120px;
+    background-color: rgba(69, 67, 67, 0.7);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.artists-content > :nth-child(1) {
+    left: 10px;
+}
+
+.artists-content > :nth-last-child(1) {
+    right: 10px;
+}
+
+.songs-info {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
+
+.songs-info > * {
+    font-family: "Wix Madefor Text", sans-serif;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--background-darker);
+    height: var(--footer-height);
+    color: white;
+    padding: 0 15px;
+    position: fixed;
+    width: calc(100vw - 30px);
+}
+
+footer > * {
+    font-family: "Wix Madefor Text", sans-serif;
+}
+
+body {
+    margin: 0;
+    display: block;
+    width: 100vw;
+    min-height: 100vh;
+}
+
+img {
+    color: white;
+    width: 30px;
+}
+
+.article-content > img {
+    cursor: pointer;
+}
+
+footer > buton,
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+.d-flex {
+    display: flex;
+}
+
+.active {
+    color: #c62828;
+}
+
+.play-button-sm {
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+}
+
+.play-button {
+    align-items: center;
+    justify-content: center;
+    background-color: red;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+.progress {
+    display: flex;
+}
+
+.progress > input {
+    width: calc(100vw - 800px);
+    min-width: 100px;
+    border-radius: 5px;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+}
+
+.control > * {
+    margin-right: 15px;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.actions > button,
+.control > button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.actions > * {
+    margin-right: 15px;
+}
+
+.article-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    cursor: pointer;
+}
+
+.article-content > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.article-content > div > div {
+    display: flex;
+    flex-direction: column;
+    margin-right: 25px;
+}
+
+.text-light {
+    opacity: 0.6;
+    margin-top: 0.6rem;
+    font-size: 14px;
+}
+
+.article-content > div > span {
+    margin-right: 15px;
+    font-weight: 600;
+}
+
+hr {
+    border: 1px solid #d3d3d3;
+    border-radius: 1px;
+}
+
+article {
+    text-align: centers;
+}
+
+form {
+    color: white;
+    text-align: start;
+}
+
+.direction {
+    flex-direction: column;
+}
+
