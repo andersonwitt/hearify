@@ -14,11 +14,9 @@ body {
     justify-content: center;
     align-items: center;
     display: flex;
-    height: 700px;
-    width: 800px;
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: auto;
 }
 
 .h-login-form {
@@ -27,13 +25,30 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: 100%;
 }
 
 .login-input-section   {
     width: 70%;
 }
 
-@media (max-width: 600px) {
+.logo-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: calc(100% - 1rem);
+    width: 100%;
+}
+
+.title {
+    font-size: 16px;
+    font-weight: 800;
+    color: var(--font-color);
+}
+
+
+@media (max-width: 992px) {
     .hide-xs {
         display: none;
     }
