@@ -9,6 +9,15 @@ body {
     color: var(--font-color);
 }
 
+ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2rem;
+    margin: 1.2rem 0;
+  }
+
 .logo-login {
     background-image: url(./assets/images/hearify-background.svg);
     justify-content: center;
@@ -28,7 +37,7 @@ body {
     height: 100%;
 }
 
-.login-input-section   {
+.login-input-section {
     width: 70%;
 }
 
@@ -47,6 +56,9 @@ body {
     color: var(--font-color);
 }
 
+.input-outlined {
+    background-color: var(--bg-contrast);
+}
 
 @media (max-width: 992px) {
     .hide-xs {
@@ -56,9 +68,61 @@ body {
 .h-container {
     display: flex;
     padding: 25px;
+    height: calc(100% - 70px);
 }
 
-.nav-bar{
+.nav-bar {
     border-radius: 5px;
     background-color: var(--bg-contrast);
+}
+
+.icon-btn {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    
+}
+
+.main-icon-btn {
+    background-color: #c62828;
+}
+
+.main-icon-btn:hover {
+    background-color: #961b1b;
+}
+
+.thumbnail {
+    border-radius: 5px;
+    width: 60px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
+.player-root {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    padding: 5px;
+    background-color: var(--bg-contrast);
+}
+
+.input-progress-bar {
+    display: none;
+    /* display: block; */
+}
+
+.progress-bar {
+    /* display: none; */
+    display: block;
+    width: 300px;
+    height: 5px;
+    background-color: var(--bg-color);
+}
+
+.inner-progress-bar {
+background-color: #c62828;
+width: 24px;
+height: 5px;
 }
