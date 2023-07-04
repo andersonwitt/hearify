@@ -9,10 +9,10 @@ export class SongCard extends HTMLElement {
             });"></div>
             `;
         }
-        
+
         this.innerHTML = `
         <div class="d-flex column-gap-2">
-            <div id="thumbnail">
+            <div id="thumbnail" style="position: static">
                 ${image}
             </div>
             <section class="d-flex flex-column">
@@ -28,7 +28,7 @@ export class SongCard extends HTMLElement {
     attributeChangedCallback(name, _oldValue, newValue) {
         switch (name) {
             case "image": {
-                const element = this.getElementsByClassName("#thumbnail");
+                const element = this.querySelector("#thumbnail");
 
                 if (element?.innerContent) {
                     element.innerContent = `<div class="thumbnail" style="background-image="url(${newValue});"></div>`;
@@ -36,7 +36,7 @@ export class SongCard extends HTMLElement {
                 break;
             }
             case "song": {
-                const element = this.getElementsByClassName("#song-name");
+                const element = this.querySelector("#song-name");
 
                 if (element?.innerContent) {
                     element.innerContent = newValue;
@@ -44,7 +44,7 @@ export class SongCard extends HTMLElement {
                 break;
             }
             case "artist": {
-                const element = this.getElementsByClassName("#artist-name");
+                const element = this.querySelector("#artist-name");
 
                 if (element?.innerContent) {
                     element.innerContent = newValue;

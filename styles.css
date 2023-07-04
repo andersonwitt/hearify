@@ -9,6 +9,14 @@ body {
     color: var(--font-color);
 }
 
+.avatar {
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background-size: cover;
+    background-position: center;
+}
+
 ul {
     list-style-type: none;
     padding: 0;
@@ -19,7 +27,6 @@ ul {
   }
 
 .logo-login {
-    background-image: url(./assets/images/hearify-background.svg);
     justify-content: center;
     align-items: center;
     display: flex;
@@ -71,10 +78,32 @@ ul {
     height: calc(100% - 70px);
 }
 
-.nav-bar {
+main {
+    height: calc(100vh - 145px);
+}
+
+.h-carousel {
+    height: 70%;
+}
+
+.carousel-item > img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+.card-item {
+    height: 87%;
+    max-height: 87%;
+    overflow-y: auto;
+    
+}
+
+.h-card {
     border-radius: 5px;
     background-color: var(--bg-contrast);
 }
+
 
 .icon-btn {
     border-radius: 50%;

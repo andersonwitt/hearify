@@ -21,7 +21,7 @@ const audio = document.getElementById("hearify-audio");
 
 const songs = [
   "./assets/songs/the-weeknd-blinding-lights.mp3",
-  "./assets/songs/jack-jhonson-banana-pancakes.mp3",
+  "https://res.cloudinary.com/dvsngzeti/video/upload/f_auto:video,q_auto/v1/hearify/songs/ykd9iklgdtbeviay1tee",
   "./assets/songs/racionais-negro-drama.mp3",
   "./assets/songs/lady-gaga-shallow.mp3",
   "./assets/songs/Illusionize-moogzera.mp3",
