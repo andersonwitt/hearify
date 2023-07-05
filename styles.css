@@ -26,6 +26,11 @@ ul {
     margin: 1.2rem 0;
   }
 
+.card-music{
+    float: left;
+    width: 40%;
+}
+
 .logo-login {
     justify-content: center;
     align-items: center;
