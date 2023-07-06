@@ -24,9 +24,9 @@ ul {
     flex-direction: column;
     row-gap: 1.2rem;
     margin: 1.2rem 0;
-  }
+}
 
-.card-music{
+.card-music {
     float: left;
     width: 40%;
 }
@@ -95,13 +95,12 @@ main {
     width: 100%;
     height: 300px;
     object-fit: cover;
-  }
+}
 
 .card-item {
     height: 87%;
     max-height: 87%;
     overflow-y: auto;
-    
 }
 
 .h-card {
@@ -109,12 +108,10 @@ main {
     background-color: var(--bg-contrast);
 }
 
-
 .icon-btn {
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    
+    max-width: 50px;
+    max-height: 50px;
 }
 
 .main-icon-btn {
@@ -133,6 +130,44 @@ main {
     background-position: center;
 }
 
+.input-progress-bar {
+    width: 300px;
+    height: 5px;
+    outline: none;
+}
+
+.input-progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.input-progress-bar::-webkit-slider-thumb:hover {
+    background: var(--primary-darker);
+}
+
+.input-progress-bar::-moz-range-thumb {
+    width: 16px;
+    height: 16px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary);
+    cursor: pointer;
+}
+
+.input-progress-bar::-moz-range-thumb:hover {
+    background: var(--primary-darker);
+}
+
+.input-progress-bar::-moz-range-progress {
+    background-color: var(--primary);
+    height: 5px;
+}
+
 .player-root {
     display: flex;
     justify-content: space-between;
@@ -142,21 +177,8 @@ main {
     background-color: var(--bg-contrast);
 }
 
-.input-progress-bar {
-    display: none;
-    /* display: block; */
-}
-
 .progress-bar {
-    /* display: none; */
     display: block;
     width: 300px;
     height: 5px;
-    background-color: var(--bg-color);
-}
-
-.inner-progress-bar {
-background-color: #c62828;
-width: 24px;
-height: 5px;
 }
