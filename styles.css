@@ -8,6 +8,28 @@ body {
     color: var(--font-color);
 }
 
+a {
+    all: unset;
+    cursor: pointer;
+}
+
+.login-input-section > button {
+    height: 2.5rem;
+}
+
+.contained-textfield {
+    background-color: var(--bg-color);
+    border-radius: 5px;
+}
+
+.contained-textfield > input {
+    all: unset;
+}
+
+.contained-textfield > button {
+    all:unset;
+}
+
 .avatar {
     border-radius: 50%;
     width: 50px;
