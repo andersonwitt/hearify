@@ -12,6 +12,10 @@ const audio = document.getElementById("hearify-audio");
 const progressDuration = document.getElementById("progress-duration");
 const totalDuration = document.getElementById("total-duration");
 
+const playButtonIcon = document.getElementById("play-button-icon");
+const volumeButtonIcon = document.getElementById("volume-button-icon");
+const volumeButton = document.getElementById("volume-button");
+
 let currentSongIndex = 0;
 let currentSongTime = 0;
 let volume = 0.01;
@@ -22,7 +26,9 @@ const songs = [
 ];
 
 function handleAudioPlay() {
-    playButtonImage.src = "./assets/icons/pause-icon.svg";
+    playButtonIcon.classList.remove("bi-play-fill");
+    playButtonIcon.classList.add("bi-pause-fill");
+
     songs.forEach((_, index) => {
         handleSongQueue(index, (index) => {
             const img = document.getElementById(`play-song-image-${index + 1}`);
@@ -31,14 +37,43 @@ function handleAudioPlay() {
     });
 }
 
+function handleAudioPause() {
+    playButtonIcon.classList.remove("bi-pause-fill");
+    playButtonIcon.classList.add("bi-play-fill");
+
+    songs.forEach((_, index) => {
+        if (currentSongIndex === index) {
+            const img = document.getElementById(`play-song-image-${index + 1}`);
+            img.src = "./assets/icons/play-icon.svg";
+        }
+    });
+}
+
+function updateVolumeIconByValue(volume) {
+    if (volume == 0) {
+        volumeButtonIcon.classList.remove("bi-volume-down-fill");
+        volumeButtonIcon.classList.remove("bi-volume-up-fill");
+        volumeButtonIcon.classList.add("bi-volume-mute-fill");
+
+        return;
+    }
+
+    if (volume > 0 && volume < 0.5) {
+        volumeButtonIcon.classList.remove("bi-volume-up-fill");
+        volumeButtonIcon.classList.remove("bi-volume-mute-fill");
+        volumeButtonIcon.classList.add("bi-volume-down-fill");
+        return;
+    }
+
+    volumeButtonIcon.classList.remove("bi-volume-down-fill");
+    volumeButtonIcon.classList.remove("bi-volume-mute-fill");
+    volumeButtonIcon.classList.add("bi-volume-up-fill");
+}
+
 function handleVolumeChanged(e) {
     volume = e.target.value;
     audio.volume = volume;
-    // if (volume == 0) {
-    //     volumeImage.src = "./assets/icons/volume-off-icon.svg";
-    //     return;
-    // }
-    // volumeImage.src = "./assets/icons/volume-icon.svg";
+    updateVolumeIconByValue(e.target.value);
 }
 
 audio.addEventListener("durationchange", () => {
@@ -101,7 +136,6 @@ function formatTime(time) {
 }
 
 function updateProgress(e) {
-    debugger;
     if (audio.paused) {
         return;
     }
@@ -137,6 +171,34 @@ function setAudioCurrentTime(currentTime) {
     }
 }
 
+function handleVolumeClicked() {
+    if (audio.volume > 0) {
+        volumeRange.value = 0;
+        audio.volume = 0;
+        volumeImage.src = "./assets/icons/volume-off-icon.svg";
+        return;
+    }
+
+    volumeRange.value = volume;
+    audio.volume = volume;
+    volumeImage.src = "./assets/icons/volume-icon.svg";
+}
+
+function handleVolumeClicked() {
+    let currentVolume = 0;
+
+    if (audio.volume > 0) {
+        currentVolume = 0;
+    } else {
+        currentVolume = Number(volume);
+    }
+
+    volumeInputProgressBar.value = currentVolume;
+    audio.volume = currentVolume;
+
+    updateVolumeIconByValue(currentVolume);
+    updateSliderProgress(volumeInputProgressBar, volumeProgressBar)();
+}
 
 const playSong = () => {
     if (audio.paused) {
@@ -154,11 +216,11 @@ function progressMouseEvent(eventType, progressBar, inputProgressBar) {
                 progressBar.classList.add("d-none");
                 inputProgressBar.classList.remove("d-none");
                 break;
-                case "mouseleave":
-                    progressBar.classList.remove("d-none");
-                    inputProgressBar.classList.add("d-none");
-                    break;
-                }
+            case "mouseleave":
+                progressBar.classList.remove("d-none");
+                inputProgressBar.classList.add("d-none");
+                break;
+        }
     };
 }
 
@@ -169,11 +231,11 @@ function updateSliderProgress(inputProgressBar, progressBar) {
             max: Number(inputProgressBar.max),
             min: Number(inputProgressBar.min),
         };
-        
+
         const value =
-        ((inputObj.value - inputObj.min) / (inputObj.max - inputObj.min)) *
-        100;
-        
+            ((inputObj.value - inputObj.min) / (inputObj.max - inputObj.min)) *
+            100;
+
         inputProgressBar.style.background = `linear-gradient(to right, var(--primary) 0%, var(--primary) ${value}%, var(--bg-color) ${value}%, var(--bg-color) 100%)`;
         progressBar.style.background = `linear-gradient(to right, var(--light-contrast) 0%, var(--light-contrast) ${value}%, var(--bg-color) ${value}%, var(--bg-color) 100%)`;
     };
@@ -183,7 +245,7 @@ function onLoad() {
     audio.src = songs[currentSongIndex];
     updateSliderProgress(volumeInputProgressBar, volumeProgressBar)();
     updateSliderProgress(songInputProgressBar, songProgressBar)();
-    
+
     if (audio) {
         audio.load();
     }
@@ -194,6 +256,16 @@ function onLoad() {
         // button.addEventListener("click", playSong);
         // songArticle.addEventListener("click", handleClickQueue(index));
     });
+}
+
+function handleProgressRangeChanged(e) {
+    const progress = Number(e.target.value);
+
+    if (audio?.currentTime >= 0 && duration >= 0 && progress >= 0) {
+        const currentTime = (progress / 100) * duration;
+
+        setAudioCurrentTime(currentTime);
+    }
 }
 
 songProgressRoot.addEventListener(
@@ -236,15 +308,11 @@ audio.addEventListener("ended", handleEndSong);
 
 songInputProgressBar.addEventListener("change", handleProgressRangeChanged);
 
-function handleProgressRangeChanged(e) {
-    const progress = Number(e.target.value);
+audio.addEventListener("play", handleAudioPlay);
 
-    if (audio?.currentTime >= 0 && duration >= 0 && progress >= 0) {
-        const currentTime = (progress / 100) * duration;
+audio.addEventListener("pause", handleAudioPause);
 
-        setAudioCurrentTime(currentTime);
-    }
-}
+volumeButton.addEventListener("click", handleVolumeClicked);
 
 // replayButton.addEventListener("click", repeat);
 
@@ -252,15 +320,9 @@ function handleProgressRangeChanged(e) {
 
 // fastForwardButton.addEventListener("click", nextSong);
 
-audio.addEventListener("play", handleAudioPlay);
-
-audio.addEventListener("pause", handleAudioPause);
-
 // fastRewindButton.addEventListener("click", handleFastRewindClicked);
 
 //volumeRange.addEventListener("input", handleVolumeChanged);
-
-//volumeButton.addEventListener("click", handleVolumeClicked);
 
 //favoriteButton.addEventListener("click", handleFavoriteClicked);
 

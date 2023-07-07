@@ -20,7 +20,7 @@
 
     <body>
         <div class="h-container column-gap-4">
-            <nav class="h-card p-3">
+            <nav class="h-card p-3 hide-xs">
                 <section
                     class="d-flex align-items-center justify-content-between"
                 >
@@ -109,7 +109,7 @@
                     </section>
                 </header>
                 <main class="w-100 d-flex flex-column row-gap-3">
-                    <article class="h-card h-100">
+                    <article class="h-card">
                         <div
                             id="carouselExampleCaptions"
                             class="carousel slide w-100 h-100"
@@ -148,7 +148,6 @@
                                         class="carousel-caption d-none d-md-block"
                                     >
                                         <h5>LINKIN PARK - In The End</h5>
-                                       
                                     </div>
                                 </div>
                                 <div class="carousel-item">
@@ -204,7 +203,7 @@
                             </button>
                         </div>
                     </article>
-                    <section class="d-flex column-gap-3 h-100">
+                    <section class="d-flex d-flex-column-xs gap-3" style="margin-bottom: 6rem;">
                         <article class="h-card w-100 p-3">
                             <h3>Músicas para você</h3>
                             <section class="card-music m-3">
@@ -258,157 +257,216 @@
                                 </song-card>
                             </section>
                         </article>
-                        <article class="h-card w-100 p-3">
+                        <article class="container-fluid h-card p-3">
                             <h3>Seus Amigos</h3>
-                            
-                            <section class="card-music m-3">
-                                <song-card
-                                    artist="Leo"
-                                    song="Vampiro"
-                                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/fl9umqgwqguns8y5qium"
-                                >
-                                </song-card>
-                            </section>
-                            
-                            <section class="card-music m-3">
-                                <song-card
-                                    artist="Chris"
-                                    song="Nego Drama"
-                                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/wxfztexderuuoq1kjfxo"
-                                >
-                                </song-card>
-                            </section>     
+                            <section class="row p-3 row-gap-4">
+                                <div class="col col-xs-12 col-md-6 d-flex column-gap-2">
+                                    <div
+                                        class="avatar"
+                                        style="
+                                            background-image: url(https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/fl9umqgwqguns8y5qium);
+                                        "
+                                    ></div>
+                                    <section class="d-flex flex-column">
+                                        <span class="fw-bold">Leo</span>
+                                        <span class="text-white-50"
+                                            >Vampiro</span
+                                        >
+                                    </section>
+                                </div>
 
-                            <section class="card-music m-3">
-                                <song-card
-                                    artist="Anderson"
-                                    song="Blinding Light"
-                                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/h2mw9bxt1kmocbqvavnd"
-                                >
-                                </song-card>
-                            </section>   
-                            
-                            <section class="card-music m-3">
-                                <song-card
-                                    artist="Douglas"
-                                    song="In the End"
-                                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/cthsnzomhsa4iqogs5pp"
-                                >
-                                </song-card>
-                            </section> 
-                            
-                            <section class="card-music m-3">
-                                <song-card
-                                    artist="Marcelli"
-                                    song="Quero Ser Feliz Também"
-                                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/vlqcsmmrl6avq0ynwn2q"
-                                >
-                                </song-card>
-                            </section> 
+                                <div class="col col-xs-12 col-md-6 d-flex column-gap-2">
+                                    <div
+                                        class="avatar"
+                                        style="
+                                            background-image: url(https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/wxfztexderuuoq1kjfxo);
+                                        "
+                                    ></div>
+                                    <section class="d-flex flex-column">
+                                        <span class="fw-bold">Chris</span>
+                                        <span class="text-white-50"
+                                            >Nego Drama</span
+                                        >
+                                    </section>
+                                </div>
+
+                                <div class="col col-xs-12 col-md-6 d-flex column-gap-2">
+                                    <div
+                                        class="avatar"
+                                        style="
+                                            background-image: url(https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/h2mw9bxt1kmocbqvavnd);
+                                        "
+                                    ></div>
+                                    <section class="d-flex flex-column">
+                                        <span class="fw-bold">Anderson</span>
+                                        <span class="text-white-50"
+                                            >Blinding Light</span
+                                        >
+                                    </section>
+                                </div>
+
+                                <div class="col col-xs-12 col-md-6 d-flex column-gap-2">
+                                    <div
+                                        class="avatar"
+                                        style="
+                                            background-image: url(https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/cthsnzomhsa4iqogs5pp);
+                                        "
+                                    ></div>
+                                    <section class="d-flex flex-column">
+                                        <span class="fw-bold">Douglas</span>
+                                        <span class="text-white-50"
+                                            >In the End</span
+                                        >
+                                    </section>
+                                </div>
+
+                                <div class="col col-xs-12 col-md-6 d-flex column-gap-2">
+                                    <div
+                                        class="avatar"
+                                        style="
+                                            background-image: url(https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/vlqcsmmrl6avq0ynwn2q);
+                                        "
+                                    ></div>
+                                    <section class="d-flex flex-column">
+                                        <span class="fw-bold">Marcelli</span>
+                                        <span class="text-white-50"
+                                            >Quero Ser Feliz Também</span
+                                        >
+                                    </section>
+                                </div>
+                            </section>
                         </article>
                     </section>
                 </main>
             </section>
         </div>
-        <footer>
-            <section class="player-root">
-                <song-card
-                    artist="Linkin Park"
-                    song="In the end"
-                    image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/huuu7ic5ynroe2udelit"
-                ></song-card>
-                <div>
-                    <button type="button" class="btn btn-dark icon-btn">
-                        <div
-                            class="d-flex w-100 h-100 justify-content-center align-items-center"
-                        >
-                            <i
-                                class="bi bi-skip-start-fill"
-                                style="font-size: 1.5rem"
-                            ></i>
-                        </div>
-                    </button>
-                    <button
-                        id="play-button"
-                        type="button"
-                        class="btn btn-dark icon-btn main-icon-btn"
-                    >
-                        <div
-                            class="d-flex w-100 h-100 justify-content-center align-items-center"
-                        >
-                            <i
-                                class="bi bi-play-fill"
-                                style="font-size: 1.5rem"
-                            ></i>
-                        </div>
-                    </button>
-                    <button type="button" class="btn btn-dark icon-btn">
-                        <div
-                            class="d-flex w-100 h-100 justify-content-center align-items-center"
-                        >
-                            <i
-                                class="bi bi-skip-end-fill"
-                                style="font-size: 1.5rem"
-                            ></i>
-                        </div>
-                    </button>
-                </div>
-                <div class="d-flex align-items-center column-gap-3 h-100">
-                    <span id="progress-duration">00:00</span>
+        <footer class="w-100">
+            <section class="player-root container-fluid w-100 p-2">
+                <div class="row w-100">
                     <div
-                        id="song-progress-root"
-                        class="d-flex align-items-center h-100"
+                        class="col-md-auto d-flex align-items-center justify-content-between column-gap-4"
                     >
-                        <input
-                            type="range"
-                            id="song-progress"
-                            class="input-progress-bar d-none"
-                            min="0"
-                            value="0.5"
-                            step="0.01"
-                            max="100"
-                        />
-                        <div
-                            id="song-progress-viewer"
-                            class="progress-bar"
-                        ></div>
+                        <song-card
+                            artist="Linkin Park"
+                            song="In the end"
+                            image="https://res.cloudinary.com/dvsngzeti/image/upload/f_auto,q_auto/v1/hearify/images/huuu7ic5ynroe2udelit"
+                        ></song-card>
+                        <div class="d-flex column-gap-1">
+                            <button type="button" class="btn btn-dark icon-btn">
+                                <div
+                                    class="d-flex w-100 h-100 justify-content-center align-items-center"
+                                >
+                                    <i
+                                        class="bi bi-skip-start-fill"
+                                        style="font-size: 1.5rem"
+                                    ></i>
+                                </div>
+                            </button>
+                            <button
+                                id="play-button"
+                                type="button"
+                                class="btn btn-dark icon-btn main-icon-btn"
+                            >
+                                <div
+                                    class="d-flex w-100 h-100 justify-content-center align-items-center"
+                                >
+                                    <i
+                                        id="play-button-icon"
+                                        class="bi bi-play-fill"
+                                        style="font-size: 1.5rem"
+                                    ></i>
+                                </div>
+                            </button>
+                            <button type="button" class="btn btn-dark icon-btn">
+                                <div
+                                    class="d-flex w-100 h-100 justify-content-center align-items-center"
+                                >
+                                    <i
+                                        class="bi bi-skip-end-fill"
+                                        style="font-size: 1.5rem"
+                                    ></i>
+                                </div>
+                            </button>
+                        </div>
                     </div>
-                    <span id="total-duration">03:10</span>
-                    <audio id="hearify-audio" src="">
-                        Your browser does not support the audio element.
-                    </audio>
+                    <div
+                        class="col col-xs-6 d-flex align-items-center column-gap-3"
+                    >
+                        <span id="progress-duration">00:00</span>
+                        <div
+                            id="song-progress-root"
+                            class="d-flex align-items-center h-100 w-100"
+                        >
+                            <input
+                                type="range"
+                                id="song-progress"
+                                class="input-progress-bar d-none"
+                                min="0"
+                                value="0.5"
+                                step="0.01"
+                                max="100"
+                            />
+                            <div
+                                id="song-progress-viewer"
+                                class="progress-bar"
+                            ></div>
+                        </div>
+                        <span id="total-duration">03:10</span>
+                        <audio id="hearify-audio" src="">
+                            Your browser does not support the audio element.
+                        </audio>
+                    </div>
+                    <div
+                        class="col col-lg-2 align-items-center hide-flex-xs column-gap-3"
+                    >
+                        <button
+                            id="volume-button"
+                            type="button"
+                            class="btn btn-dark icon-btn"
+                        >
+                            <div
+                                class="d-flex justify-content-center align-items-center"
+                            >
+                                <i
+                                    id="volume-button-icon"
+                                    class="bi bi-volume-down-fill"
+                                    style="font-size: 1.5rem"
+                                ></i>
+                            </div>
+                        </button>
+
+                        <div
+                            id="volume-progress-root"
+                            class="d-flex align-items-center h-100 w-100"
+                        >
+                            <input
+                                type="range"
+                                id="volume-progress"
+                                class="input-progress-bar d-none"
+                                min="0"
+                                value="0.01"
+                                step="0.01"
+                                max="1"
+                            />
+                            <div
+                                id="volume-progress-viewer"
+                                class="progress-bar"
+                            ></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="col-xs-2">
+                    
+                </div>
+                <div class="col-xs-2">
+                    
+                </div>
+                <div class="col h-100">
+
                 </div>
                 <div class="d-flex h-100 column-gap-3">
-                    <button type="button" class="btn btn-dark icon-btn">
-                        <div
-                            class="d-flex justify-content-center align-items-center"
-                        >
-                            <i
-                                class="bi bi-volume-down-fill"
-                                style="font-size: 1.5rem"
-                            ></i>
-                        </div>
-                    </button>
 
-                    <div
-                        id="volume-progress-root"
-                        class="d-flex align-items-center h-100"
-                    >
-                        <input
-                            type="range"
-                            id="volume-progress"
-                            class="input-progress-bar d-none"
-                            min="0"
-                            value="0.01"
-                            step="0.01"
-                            max="1"
-                        />
-                        <div
-                            id="volume-progress-viewer"
-                            class="progress-bar"
-                        ></div>
-                    </div>
-                </div>
+                </div> -->
             </section>
         </footer>
         <script async type="module" src="./bootstrap.js"></script>

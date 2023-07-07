@@ -3,8 +3,7 @@
 body {
     display: block;
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    min-height: 100vh;
     background-color: var(--bg-color);
     color: var(--font-color);
 }
@@ -72,19 +71,36 @@ ul {
     background-color: var(--bg-contrast);
 }
 
+.hide-flex-xs {
+    display: flex;
+}
+
+.d-flex-column-xs {
+    flex-direction: row;
+}
+
 @media (max-width: 992px) {
     .hide-xs {
         display: none;
     }
+
+    .hide-flex-xs {
+        display: none;
+    }
+
+    .d-flex-column-xs {
+        flex-direction: column;
+    }
 }
+
 .h-container {
     display: flex;
     padding: 25px;
-    height: calc(100% - 70px);
+    min-height: calc(100% - 70px);
 }
 
 main {
-    height: calc(100vh - 145px);
+    min-height: calc(100vh - 12rem);
 }
 
 .h-carousel {
@@ -131,7 +147,7 @@ main {
 }
 
 .input-progress-bar {
-    width: 300px;
+    width: 100%;
     height: 5px;
     outline: none;
 }
@@ -172,13 +188,20 @@ main {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    min-height: 70px;
     padding: 5px;
     background-color: var(--bg-contrast);
 }
 
 .progress-bar {
     display: block;
-    width: 300px;
+    width: 100%;
     height: 5px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999999;
 }
