@@ -3,7 +3,7 @@
 body {
     display: block;
     margin: 0;
-    min-height: 100vh;
+    height: 100vh;
     background-color: var(--bg-color);
     color: var(--font-color);
 }
